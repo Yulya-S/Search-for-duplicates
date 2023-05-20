@@ -49,8 +49,12 @@ def find_duplicates(files: list[str], hash_function: callable) -> list[str]:
             else:
                 duplicate_count += 1
     print(duplicate_count, time.time() - start_time)
+    
+def _hash(data):
+    return hash(data)
 
 
 find_duplicates(os.listdir("out"), crc)
 find_duplicates(os.listdir("out"), pjw)
 find_duplicates(os.listdir("out"), buz)
+find_duplicates(os.listdir("out"), _hash)
