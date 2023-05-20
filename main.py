@@ -36,6 +36,10 @@ def buz(data):
     return h
 
 
+def _hash(data):
+    return hash(data)
+
+
 def find_duplicates(files: list[str], hash_function: callable) -> list[str]:
     hashes = []
     duplicate_count = 0
@@ -49,9 +53,6 @@ def find_duplicates(files: list[str], hash_function: callable) -> list[str]:
             else:
                 duplicate_count += 1
     print(duplicate_count, time.time() - start_time)
-    
-def _hash(data):
-    return hash(data)
 
 
 find_duplicates(os.listdir("out"), crc)
